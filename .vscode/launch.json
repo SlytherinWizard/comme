@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "comme_flutter",
+            "cwd": "${workspaceFolder}/comme_flutter",
+            "request": "launch",
+            "type": "dart",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "comme_server",
+            "cwd": "${workspaceFolder}/comme_server",
+            "request": "launch",
+            "type": "dart",
+            "preLaunchTask": "docker_compose_up",
+            "program": "bin/main.dart",
+            "env": {
+                "SERVERPOD_PASSWORD_database": "k0BJyDN2Y2VmFA7QdjmAABMSD4efFkGm"
+            },
+            "args": [
+                "--apply-migrations"
+            ]
+        }
+    ],
+    "compounds": [
+        {
+            "name": "comme (full stack)",
+            "configurations": [
+                "comme_server",
+                "comme_flutter"
+            ],
+            "presentation": {
+                "order": 1
+            }
+        }
+    ]
+}

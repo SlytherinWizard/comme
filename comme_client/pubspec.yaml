@@ -2,7 +2,7 @@ name: comme_client
 description: Starting point for a Serverpod client.
 
 environment:
-  sdk: '^3.8.0'
+  sdk: '3.11.4'
 
 resolution: workspace
 

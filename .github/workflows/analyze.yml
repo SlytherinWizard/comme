@@ -19,14 +19,16 @@ jobs:
             
       - name: Install dependencies for App
         working-directory: comme_flutter
-        run: dart pub get
+        run: flutter pub get
 
       - name: Install dependencies for Server
         working-directory: comme_server
-        run: dart pub get
+        run: flutter pub get
 
+      - name: Analyze Server
+        working-directory: comme_server
+        run: dart analyze --fatal-infos
 
-
-      # - name: Analyze
-      #   working-directory: comme_server
-      #   run: dart analyze --fatal-infos
+      - name: Analyze App
+        working-directory: comme_flutter
+        run: dart analyze --fatal-infos

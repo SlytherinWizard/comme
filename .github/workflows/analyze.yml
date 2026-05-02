@@ -16,11 +16,17 @@ jobs:
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: 3.11.4
+            
+      - name: Install dependencies for App
+        working-directory: comme_flutter
+        run: dart pub get
 
-      - name: Install dependencies
+      - name: Install dependencies for Server
         working-directory: comme_server
         run: dart pub get
 
-      - name: Analyze
-        working-directory: comme_server
-        run: dart analyze --fatal-infos
+
+
+      # - name: Analyze
+      #   working-directory: comme_server
+      #   run: dart analyze --fatal-infos

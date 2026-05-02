@@ -1,0 +1,29 @@
+name: comme
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: 3.11.4
+  flutter: 3.41.6
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_bloc: 9.1.1
+  go_router: 17.2.3
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true

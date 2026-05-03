@@ -5,6 +5,7 @@ import 'package:comme/routes/routes.dart';
 class AppRouter {
   GoRouter router() {
     return GoRouter(
+      initialLocation: Routes.earth,
       routes: [
         GoRoute(
           path: Routes.earth,

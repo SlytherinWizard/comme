@@ -12,6 +12,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     // on<AuthInitial>(_onAuthInitial);
     // on<AuthLoading>(_onAuthLoading);
     // on<AuthAuthenticated>(_onAuthAuthenticated);
-    // on<AuthUnauthenticated>(_onAuthUnauthenticated); 
+    // on<AuthUnauthenticated>(_onAuthUnauthenticated);
   }
 }

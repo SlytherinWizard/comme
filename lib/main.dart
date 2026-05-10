@@ -2,6 +2,9 @@ import 'package:comme/routes/app_router.dart';
 import 'package:comme/services/provider_service.dart';
 import 'package:flutter/material.dart';
 
+//TODO
+// - Core pages and navigation
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 

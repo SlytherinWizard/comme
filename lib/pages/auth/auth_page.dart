@@ -2,8 +2,10 @@ import 'package:comme/cubits/login/login_cubit.dart';
 import 'package:comme/cubits/signup/signup_cubit.dart';
 import 'package:comme/pages/auth/views/login/login_view.dart';
 import 'package:comme/pages/auth/views/signup/signup_view.dart';
+import 'package:comme/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -24,10 +26,13 @@ class AuthPage extends StatelessWidget {
                 children: [LoginView(), SignupView()],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(color: Colors.blue),
+            TextButton(
+              onPressed: () {
+                context.go(Routes.earth);
+              },
               child: Text("Next step"),
             ),
+            Spacer(),
           ],
         ),
       ),

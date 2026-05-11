@@ -7,14 +7,15 @@ class AppRouter {
   GoRouter router() {
     return GoRouter(
       initialLocation: Routes.auth,
+      debugLogDiagnostics: true,
       routes: [
-        GoRoute(
-          path: Routes.earth,
-          builder: (context, state) => const EarthPage(),
-        ),
         GoRoute(
           path: Routes.auth,
           builder: (context, state) => const AuthPage(),
+        ),
+        GoRoute(
+          path: Routes.earth,
+          builder: (context, state) => const EarthPage(),
         ),
       ],
     );

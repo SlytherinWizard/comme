@@ -1,6 +1,4 @@
-import 'package:comme/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class EarthPage extends StatelessWidget {
   const EarthPage({super.key});
@@ -14,7 +12,6 @@ class EarthPage extends StatelessWidget {
           Text("Earth Page"),
           TextButton(
             onPressed: () {
-              context.pop();
             },
             child: Text("Next step"),
           ),

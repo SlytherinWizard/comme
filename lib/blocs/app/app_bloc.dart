@@ -1,14 +1,14 @@
 import 'package:comme/repositories/auth_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'auth_event.dart';
-part 'auth_state.dart';
+part 'app_event.dart';
+part 'app_state.dart';
 
-class AuthBloc extends Bloc<AuthEvent, AuthState> {
+class AppBloc extends Bloc<AppEvent, AppState> {
   final AuthRepository _authRepository;
-  AuthBloc({required AuthRepository authRepository})
+  AppBloc({required AuthRepository authRepository})
     : _authRepository = authRepository,
-      super(AuthState.initial()) {
+      super(AppState.initial()) {
     // on<AuthInitial>(_onAuthInitial);
     // on<AuthLoading>(_onAuthLoading);
     // on<AuthAuthenticated>(_onAuthAuthenticated);

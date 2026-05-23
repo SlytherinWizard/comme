@@ -2,9 +2,8 @@ import 'package:comme/routes/app_router.dart';
 import 'package:comme/services/provider_service.dart';
 import 'package:flutter/material.dart';
 
-//TODO
-// - Core pages and navigation
-
+// TODO:
+// 1 - Firebase configuration Android and IOS
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
 

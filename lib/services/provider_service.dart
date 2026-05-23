@@ -1,7 +1,7 @@
 import 'package:comme/repositories/auth_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:comme/blocs/auth/auth_bloc.dart';
+import 'package:comme/blocs/app/app_bloc.dart';
 
 class ProviderService {
   static Widget initProviders({required Widget child}) {
@@ -13,9 +13,9 @@ class ProviderService {
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider<AuthBloc>(
+          BlocProvider<AppBloc>(
             create: (context) =>
-                AuthBloc(authRepository: context.read<AuthRepository>()),
+                AppBloc(authRepository: context.read<AuthRepository>()),
           ),
         ],
         child: child,

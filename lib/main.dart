@@ -1,12 +1,12 @@
 import 'package:comme/routes/app_router.dart';
+import 'package:comme/services/before_run_app.dart';
 import 'package:comme/services/provider_service.dart';
 import 'package:flutter/material.dart';
 
 // TODO:
 // 1 - Firebase configuration Android and IOS
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-
+  beforeRunApp();
   runApp(const App());
 }
 

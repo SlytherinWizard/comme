@@ -1,15 +1,30 @@
 part of 'app_bloc.dart';
 
-class AppEvent {}
+abstract class AppEvent {}
 
-class AppInitial extends AppEvent {}
+class AppInitialized extends AppEvent {}
 
-class AppLoading extends AppEvent {}
+class AppSignUpRequested extends AppEvent {
+  final String email;
+  final String password;
+  final String displayName;
 
-class AppUserAuthenticated extends AppEvent {
-  final String userId;
-
-  AppUserAuthenticated(this.userId);
+  AppSignUpRequested({
+    required this.email,
+    required this.password,
+    required this.displayName,
+  });
 }
 
-class AppUserUnauthenticated extends AppEvent {}
+class AppSignInRequested extends AppEvent {
+  final String email;
+  final String password;
+
+  AppSignInRequested({required this.email, required this.password});
+}
+
+class AppSignOutRequested extends AppEvent {}
+
+class AppAuthStateChanged extends AppEvent {}
+
+class AppUserUpdated extends AppEvent {}

@@ -1,13 +1,15 @@
 import 'package:comme/blocs/app/app_bloc.dart';
 import 'package:comme/routes/app_router.dart';
-import 'package:comme/services/before_run_app.dart';
 import 'package:comme/services/provider_service.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 
-
-void main() {
-  beforeRunApp();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  await Hive.initFlutter();
   runApp(const App());
 }
 

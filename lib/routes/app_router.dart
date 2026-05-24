@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:comme/blocs/app/app_bloc.dart';
 import 'package:comme/pages/auth/auth_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter/foundation.dart';
 import 'package:comme/pages/earth/earth_page.dart';
 import 'package:comme/routes/routes.dart';
 import 'package:comme/pages/chat/chat_page.dart';
@@ -12,9 +15,12 @@ import 'package:comme/pages/warehouse/warehouse_page.dart';
 
 class AppRouter {
   GoRouter router(AppBloc appBloc) {
+    final refreshListener = _AppBlocRefreshListenable(appBloc);
+
     return GoRouter(
       initialLocation: Routes.auth,
       debugLogDiagnostics: true,
+      refreshListenable: refreshListener,
       redirect: (context, state) {
         final isAuthenticated =
             appBloc.state.authStatus == AuthStatus.authenticated;
@@ -67,5 +73,21 @@ class AppRouter {
         ),
       ],
     );
+  }
+}
+
+class _AppBlocRefreshListenable extends ChangeNotifier {
+  late final StreamSubscription<AppState> _subscription;
+
+  _AppBlocRefreshListenable(AppBloc appBloc) {
+    _subscription = appBloc.stream.listen((_) {
+      notifyListeners();
+    });
+  }
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
   }
 }

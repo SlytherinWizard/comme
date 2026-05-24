@@ -189,33 +189,33 @@ class AuthRepository {
     }
   }
 
-  /// Confirm password reset with code and new password
-  Future<void> confirmPasswordReset({
-    required String code,
-    required String newPassword,
-  }) async {
-    try {
-      await _firebaseAuth.confirmPasswordReset(
-        code: code,
-        newPassword: newPassword,
-      );
-    } on FirebaseAuthException catch (e) {
-      throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
-    } catch (e) {
-      throw AuthException(message: 'Failed to reset password: $e');
-    }
-  }
+  // /// Confirm password reset with code and new password
+  // Future<void> confirmPasswordReset({
+  //   required String code,
+  //   required String newPassword,
+  // }) async {
+  //   try {
+  //     await _firebaseAuth.confirmPasswordReset(
+  //       code: code,
+  //       newPassword: newPassword,
+  //     );
+  //   } on FirebaseAuthException catch (e) {
+  //     throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
+  //   } catch (e) {
+  //     throw AuthException(message: 'Failed to reset password: $e');
+  //   }
+  // }
 
-  /// Verify password reset code
-  Future<String> verifyPasswordResetCode(String code) async {
-    try {
-      return await _firebaseAuth.verifyPasswordResetCode(code);
-    } on FirebaseAuthException catch (e) {
-      throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
-    } catch (e) {
-      throw AuthException(message: 'Invalid password reset code: $e');
-    }
-  }
+  // /// Verify password reset code
+  // Future<String> verifyPasswordResetCode(String code) async {
+  //   try {
+  //     return await _firebaseAuth.verifyPasswordResetCode(code);
+  //   } on FirebaseAuthException catch (e) {
+  //     throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
+  //   } catch (e) {
+  //     throw AuthException(message: 'Invalid password reset code: $e');
+  //   }
+  // }
 
   /// Update user profile
   Future<void> updateUserProfile({
@@ -251,21 +251,21 @@ class AuthRepository {
     }
   }
 
-  /// Change password
-  Future<void> changePassword(String newPassword) async {
-    try {
-      final user = currentUser;
-      if (user == null) {
-        throw AuthException(message: 'No user is currently signed in');
-      }
+  // /// Change password
+  // Future<void> changePassword(String newPassword) async {
+  //   try {
+  //     final user = currentUser;
+  //     if (user == null) {
+  //       throw AuthException(message: 'No user is currently signed in');
+  //     }
 
-      await user.updatePassword(newPassword);
-    } on FirebaseAuthException catch (e) {
-      throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
-    } catch (e) {
-      throw AuthException(message: 'Failed to change password: $e');
-    }
-  }
+  //     await user.updatePassword(newPassword);
+  //   } on FirebaseAuthException catch (e) {
+  //     throw AuthException.fromFirebaseCode(e.code, e.message ?? '');
+  //   } catch (e) {
+  //     throw AuthException(message: 'Failed to change password: $e');
+  //   }
+  // }
 
   /// Delete user account
   Future<void> deleteAccount() async {

@@ -1,3 +1,4 @@
+import 'package:comme/blocs/app/app_bloc.dart';
 import 'package:comme/pages/auth/auth_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:comme/pages/earth/earth_page.dart';
@@ -10,10 +11,27 @@ import 'package:comme/pages/profile/profile_page.dart';
 import 'package:comme/pages/warehouse/warehouse_page.dart';
 
 class AppRouter {
-  GoRouter router() {
+  GoRouter router(AppBloc appBloc) {
     return GoRouter(
       initialLocation: Routes.auth,
       debugLogDiagnostics: true,
+      redirect: (context, state) {
+        final isAuthenticated =
+            appBloc.state.authStatus == AuthStatus.authenticated;
+        final isAuthPage = state.uri.path == Routes.auth;
+
+        // If authenticated and on auth page, redirect to home
+        if (isAuthenticated && isAuthPage) {
+          return Routes.earth;
+        }
+
+        // If not authenticated and not on auth page, redirect to auth
+        if (!isAuthenticated && !isAuthPage) {
+          return Routes.auth;
+        }
+
+        return null;
+      },
       routes: [
         GoRoute(
           path: Routes.auth,
